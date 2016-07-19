@@ -1,0 +1,82 @@
+/*
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ style.css
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*/
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 1.2em/1.4 sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1, p {
+	margin-bottom: .8em;
+}
+
+.container {
+	margin: 2em auto;
+	max-width: 40em;
+	width: 90vw;
+}
+
+
+/*
+ 
+ Slider styles
+ - - - - - -
+
+
+*/
+/* Viewport */
+.bs-viewport {
+	overflow: hidden;
+}
+
+.bs-slider {
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	transition: transform .8s ease;
+
+	/* For smoother animation */
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	perspective: 1000;
+	-webkit-perspective: 1000;
+
+	.no-flexbox & {
+		display: table;
+
+		/* Fixes image breaking out of container issue in FF */
+		table-layout: fixed;
+	}
+}
+
+/* Slides */
+.bs-slide {
+	flex: 1;
+
+	/* Fixes images breaking container in FF Developer Edition */
+	min-width: 0;
+
+	/* Just in case its a list item */
+	list-style: none;
+
+	.no-flexbox & {
+		display: table-cell !important;
+		vertical-align: top;
+	}
+}
